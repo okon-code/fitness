@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Silový Trénink</title>
+
+  <!-- PWA & iOS Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Trénink">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon.svg">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Horní Navigační lišta -->
+    <header class="navbar">
+      <button id="btn-share" class="nav-btn" aria-label="Sdílet aplikaci">
+        <span>Sdílet</span>
+      </button>
+      <h1 class="nav-title">Silový Trénink</h1>
+      <button id="btn-open-add-day" class="nav-btn bold" aria-label="Přidat tréninkový den">
+        <span>+ Přidat den</span>
+      </button>
+    </header>
+
+    <!-- Informační Banner vybraného dne -->
+    <section class="workout-header-banner">
+      <div class="banner-top-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div id="banner-workout-title" class="workout-title">Trénink A</div>
+            <button id="btn-edit-current-day" class="nav-btn" style="padding: 2px 8px; font-size: 13px; background-color: var(--bg-tertiary);" title="Upravit nebo smazat tento den">
+              <span>Upravit</span>
+            </button>
+          </div>
+          <div id="banner-workout-focus" class="workout-focus">Dřepy / Bench Press / Přítahy</div>
+        </div>
+        <div id="banner-schedule-badge" class="badge-schedule">Dnes na plánu</div>
+      </div>
+      <div class="banner-bottom-row">
+        <span id="banner-exercise-count">Odcvičeno: 0 z 4 cviků</span>
+        <span id="banner-progress-percent">0 %</span>
+      </div>
+      <div class="workout-progress-bar-container">
+        <div id="banner-progress-fill" class="workout-progress-bar-fill" style="width: 0%;"></div>
+      </div>
+    </section>
+
+    <!-- Rolovací seznam cviků -->
+    <main id="exercise-list-container" class="content-scroll">
+      <!-- Dynamicky generováno javascriptem -->
+    </main>
+
+    <!-- Spodní TabBar pro přepínání Tréninkových dnů (Dynamicky generováno) -->
+    <nav id="main-tabbar" class="tabbar">
+      <!-- Dynamicky vkládáno javascriptem -->
+    </nav>
+  </div>
+
+  <!-- Modal Sheet: Přidání cviku -->
+  <div id="modal-add-exercise" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <button id="btn-modal-close" class="nav-btn">Zrušit</button>
+        <span id="modal-title-text" class="modal-title">Přidat cvik do Tréninku</span>
+        <div style="width: 50px;"></div>
+      </div>
+
+      <div class="modal-content">
+        <!-- Segmented přepínač -->
+        <div class="segmented-control">
+          <button id="seg-db" class="segment-btn active">Z databáze cviků</button>
+          <button id="seg-custom" class="segment-btn">Vlastní cvik</button>
+        </div>
+
+        <!-- Sekce 1: Databáze cviků -->
+        <div id="section-db-picker" style="display: flex; flex-direction: column; gap: 10px;">
+          <input type="text" id="db-search-input" class="search-input" placeholder="Hledat cvik (Dřep, Bench, Záda...)" />
+          
+          <div id="db-categories-bar" class="categories-scroll">
+            <!-- Dynamické kategorie -->
+          </div>
+
+          <div id="db-exercises-list" class="db-list">
+            <!-- Výpis cviků z JSON databáze -->
+          </div>
+        </div>
+
+        <!-- Sekce 2: Vlastní cvik formulář -->
+        <div id="section-custom-exercise" style="display: none; flex-direction: column; gap: 14px;">
+          <div class="input-control-row">
+            <label class="input-label-row">Název cviku:</label>
+            <input type="text" id="custom-name-input" class="notes-input" placeholder="Např. Tlaky s jednoručkami" />
+          </div>
+
+          <div class="input-control-row">
+            <label class="input-label-row">Kategorie:</label>
+            <select id="custom-cat-select" class="notes-input">
+              <option value="Hrudník">Hrudník</option>
+              <option value="Záda">Záda</option>
+              <option value="Nohy">Nohy</option>
+              <option value="Ramena">Ramena</option>
+              <option value="Paže">Paže</option>
+              <option value="Střed těla">Střed těla</option>
+              <option value="Vlastní" selected>Vlastní</option>
+            </select>
+          </div>
+
+          <!-- Výchozí parametry -->
+          <div class="input-control-row">
+            <div class="input-label-row">
+              <span>Plánovaná váha</span>
+              <span class="unit-badge">kg</span>
+            </div>
+            <div class="stepper-row">
+              <button class="stepper-btn" onclick="adjustCustomWeight(-2.5)">−</button>
+              <div class="stepper-field-container">
+                <input type="number" step="0.5" id="custom-weight-input" class="stepper-field" value="60.0" />
+                <span class="stepper-unit">kg</span>
+              </div>
+              <button class="stepper-btn" onclick="adjustCustomWeight(2.5)">+</button>
+            </div>
+          </div>
+
+          <div class="row-dual-inputs">
+            <div class="input-control-row">
+              <span class="input-label-row">Počet sérií</span>
+              <div class="stepper-row">
+                <button class="stepper-btn" onclick="adjustCustomSets(-1)">−</button>
+                <div class="stepper-field-container">
+                  <input type="number" id="custom-sets-input" class="stepper-field" value="3" />
+                </div>
+                <button class="stepper-btn" onclick="adjustCustomSets(1)">+</button>
+              </div>
+            </div>
+
+            <div class="input-control-row">
+              <span class="input-label-row">Opakování</span>
+              <div class="stepper-row">
+                <button class="stepper-btn" onclick="adjustCustomReps(-1)">−</button>
+                <div class="stepper-field-container">
+                  <input type="number" id="custom-reps-input" class="stepper-field" value="10" />
+                </div>
+                <button class="stepper-btn" onclick="adjustCustomReps(1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <button id="btn-save-custom" class="btn-add-exercise-card" style="border-style: solid; background-color: var(--primary); color: #fff; margin-top: 10px;">
+            Vložit do tréninku
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Sheet: Přidání nového tréninkového dne (Trénink C, D...) -->
+  <div id="modal-add-day" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <button id="btn-modal-day-close" class="nav-btn">Zrušit</button>
+        <span class="modal-title">Nový tréninkový den</span>
+        <div style="width: 50px;"></div>
+      </div>
+
+      <div class="modal-content">
+        <div class="input-control-row">
+          <label class="input-label-row">Název tréninku:</label>
+          <input type="text" id="new-day-title" class="notes-input" placeholder="Např. Trénink C, Ruce & Břicho..." />
+        </div>
+
+        <div class="input-control-row">
+          <label class="input-label-row">Zaměření / Podtitul:</label>
+          <input type="text" id="new-day-focus" class="notes-input" placeholder="Např. Ramena / Paže / Břicho" />
+        </div>
+
+        <div class="input-control-row">
+          <label class="input-label-row">Plánované dny (text):</label>
+          <input type="text" id="new-day-schedule" class="notes-input" placeholder="Např. Sobota, nebo Úterý, Čtvrtek..." />
+        </div>
+
+        <button id="btn-save-new-day" class="btn-add-exercise-card" style="border-style: solid; background-color: var(--primary); color: #fff; margin-top: 14px; font-weight: 700;">
+          + Vytvořit tréninkový den
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Sheet: Úprava nebo smazání tréninkového dne -->
+  <div id="modal-edit-day" class="modal-overlay">
+    <div class="modal-sheet">
+      <div class="modal-header">
+        <button id="btn-modal-edit-day-close" class="nav-btn">Zrušit</button>
+        <span class="modal-title">Upravit tréninkový den</span>
+        <div style="width: 50px;"></div>
+      </div>
+
+      <div class="modal-content">
+        <div class="input-control-row">
+          <label class="input-label-row">Název tréninku:</label>
+          <input type="text" id="edit-day-title" class="notes-input" placeholder="Např. Trénink A" />
+        </div>
+
+        <div class="input-control-row">
+          <label class="input-label-row">Zaměření / Podtitul:</label>
+          <input type="text" id="edit-day-focus" class="notes-input" placeholder="Např. Dřepy / Bench Press / Přítahy" />
+        </div>
+
+        <div class="input-control-row">
+          <label class="input-label-row">Plánované dny:</label>
+          <input type="text" id="edit-day-schedule" class="notes-input" placeholder="Např. Pondělí, Pátek..." />
+        </div>
+
+        <button id="btn-save-edit-day" class="btn-add-exercise-card" style="border-style: solid; background-color: var(--primary); color: #fff; margin-top: 10px; font-weight: 700;">
+          Uložit úpravy
+        </button>
+
+        <div style="border-top: 1px solid var(--separator); margin-top: 8px; padding-top: 12px;">
+          <button id="btn-delete-current-day" class="btn-delete" style="width: 100%; text-align: center; font-size: 14px; font-weight: 700; padding: 10px 0;">
+            🗑️ Smazat tento tréninkový den
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast zpráva -->
+  <div id="toast" class="toast">Trénink byl uložen</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Xcode / Swift
+build/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Node / Temp
+node_modules/
+*.log
+.env
+.idea/
+.vscode/

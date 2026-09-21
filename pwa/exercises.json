@@ -1,0 +1,214 @@
+[
+  {
+    "id": "barbell_back_squat",
+    "name": "Dřep s velkou činkou (Barbell Squat)",
+    "category": "Nohy",
+    "primary_muscles": ["Kvadricepsy", "Hýždě"],
+    "secondary_muscles": ["Hamstringy", "Spodní záda", "Střed těla"],
+    "equipment": "Velká činka, Stojan",
+    "instructions": [
+      "Položte osu na trapézové svaly za krkem a uchopte ji pevně oběma rukama.",
+      "Postavte se s chodidly na šířku ramen, špičky mírně vytočené ven.",
+      "S nádechem klesejte kontrolovaně dolů, boky tlačte dozadu a dolů, kolena směřují ve směru špiček.",
+      "Klesněte až pod úroveň rovnoběžky stehen s podlahou.",
+      "S výdechem se dynamickým tlakem do celých chodidel vraťte do výchozí pozice."
+    ]
+  },
+  {
+    "id": "barbell_front_squat",
+    "name": "Čelní dřep (Front Squat)",
+    "category": "Nohy",
+    "primary_muscles": ["Kvadricepsy", "Střed těla"],
+    "secondary_muscles": ["Hýždě", "Horní záda"],
+    "equipment": "Velká činka",
+    "instructions": [
+      "Umístěte osu na přední ramena a klíční kosti, lokty držte vysoko.",
+      "Udržujte vzpřímený trup během celého rozsahu pohybu.",
+      "Klesněte do hlubokého dřepu a dynamicky se vytlačte nahoru."
+    ]
+  },
+  {
+    "id": "barbell_deadlift",
+    "name": "Mrtvý tah (Barbell Deadlift)",
+    "category": "Záda & Nohy",
+    "primary_muscles": ["Vzpřimovače páteře", "Hamstringy", "Hýždě"],
+    "secondary_muscles": ["Trapézy", "Lats", "Předloktí"],
+    "equipment": "Velká činka",
+    "instructions": [
+      "Postavte se k čince s chodidly na šířku boků, osa prochází středem chodidel.",
+      "Předkloňte se, uchopte činku těsně vně nohou a srovnejte páteř do neutrální polohy.",
+      "Nadechněte se do břicha, zpevněte střed těla a tahem nohou i zad zvedněte osu nahoru podél holení.",
+      "V horní pozici zatněte hýždě a s plnou kontrolou spusťte činku zpět na zem."
+    ]
+  },
+  {
+    "id": "romanian_deadlift",
+    "name": "Rumunský mrtvý tah (RDL)",
+    "category": "Nohy",
+    "primary_muscles": ["Hamstringy", "Hýždě"],
+    "secondary_muscles": ["Spodní záda"],
+    "equipment": "Velká činka / Jednoručky",
+    "instructions": [
+      "Držte osu ve stoje, kolena mějte jen lehce pokrčená.",
+      "Posouvejte boky vzad při současném spouštění činky těsně podél stehen.",
+      "Pociťte tah v hamstringách a kontrakcí hýždí se vraťte do stoje."
+    ]
+  },
+  {
+    "id": "barbell_bench_press",
+    "name": "Bench Press (Tlak na rovné lavičce)",
+    "category": "Hrudník",
+    "primary_muscles": ["Velký prsní sval"],
+    "secondary_muscles": ["Tricepsy", "Přední ramena"],
+    "equipment": "Velká činka, Lavička",
+    "instructions": [
+      "Položte se na lavičku, stáhněte lopatky k sobě a zasaďte chodidla pevně do země.",
+      "Uchopte osu o něco šířeji než ramena a vyjměte ji ze stojanu.",
+      "S nádechem spusťte činku na střední až dolní část hrudníku s lokty pod úhlem cca 45 stupňů.",
+      "S výdechem dynamicky vytlačte osu zpět do propnutých paží."
+    ]
+  },
+  {
+    "id": "incline_dumbbell_press",
+    "name": "Tlaky s jednoručkami na šikmé lavičce",
+    "category": "Hrudník",
+    "primary_muscles": ["Horní část prsních svalů"],
+    "secondary_muscles": ["Přední ramena", "Tricepsy"],
+    "equipment": "Jednoručky, Šikmá lavička (30°)",
+    "instructions": [
+      "Nastavte lavičku na úhel 30 stupňů a vezměte si jednoručky.",
+      "Spouštějte jednoručky po stranách hrudníku do plného protažení prsou.",
+      "Tlakem vzhůru spojte činky nad hrudníkem."
+    ]
+  },
+  {
+    "id": "overhead_press_barbell",
+    "name": "Tlak nad hlavu (Overhead Press / Military Press)",
+    "category": "Ramena",
+    "primary_muscles": ["Přední a střední ramena"],
+    "secondary_muscles": ["Tricepsy", "Horní prsa", "Střed těla"],
+    "equipment": "Velká činka",
+    "instructions": [
+      "Uchopte osu na šířku ramen a položte ji na přední ramena a klíční kosti.",
+      "Zpevněte hýždě, břicho i stehna.",
+      "Vytlačte činku přímočaře nad hlavu, v horní fázi posuňte hlavu mírně dopředu pro uzamčení osy nad těžištěm."
+    ]
+  },
+  {
+    "id": "dumbbell_lateral_raise",
+    "name": "Upažování s jednoručkami vestoje",
+    "category": "Ramena",
+    "primary_muscles": ["Střední část ramen (Delt)"],
+    "secondary_muscles": ["Trapézy"],
+    "equipment": "Jednoručky",
+    "instructions": [
+      "Stůjte s činkami po stranách stehen s mírně pokrčenými lokty.",
+      "Zvedejte paže do stran až do výšky ramen.",
+      "Kontrolovaně spouštějte zátěž zpět dolů."
+    ]
+  },
+  {
+    "id": "barbell_bent_over_row",
+    "name": "Přítahy v předklonu s velkou činkou (Barbell Row)",
+    "category": "Záda",
+    "primary_muscles": ["Široký sval zádový", "Mezilopatkové svaly"],
+    "secondary_muscles": ["Bicepsy", "Zadní ramena", "Spodní záda"],
+    "equipment": "Velká činka",
+    "instructions": [
+      "Předkloňte se v bocích do úhlu 45 stupňů s rovnými zády a mírně pokrčenými koleny.",
+      "Uchopte činku nadhmatem a přitahujte ji k pupku za vědomého stažení lopatek k sobě.",
+      "S nádechem kontrolovaně spusťte činku zpět dolů."
+    ]
+  },
+  {
+    "id": "pull_ups_bodyweight",
+    "name": "Shyby na hrazdě (Pull-ups / Chin-ups)",
+    "category": "Záda",
+    "primary_muscles": ["Široký sval zádový (Lats)"],
+    "secondary_muscles": ["Bicepsy", "Předloktí", "Zadní ramena"],
+    "equipment": "Hrazda",
+    "instructions": [
+      "Zavěste se na hrazdu nadhmatem nebo podhmatem na šířku o něco větší než ramena.",
+      "Aktivujte lopatky a tahem loktů k tělu vytáhněte bradu nad úroveň hrazdy.",
+      "Plynulým pohybem klesejte dolů do plného vyvěšení."
+    ]
+  },
+  {
+    "id": "dips_chest_triceps",
+    "name": "Dipy na bradlech (Parallel Bar Dips)",
+    "category": "Hrudník & Paže",
+    "primary_muscles": ["Tricepsy", "Dolní část prsních svalů"],
+    "secondary_muscles": ["Přední ramena"],
+    "equipment": "Bradla",
+    "instructions": [
+      "Vzepřete se na bradlech s propnutýma rukama.",
+      "S mírným náklonem vpřed klesejte do ohybu v loktech na 90 stupňů.",
+      "Dynamickým tlakem se vraťte do výchozí pozice."
+    ]
+  },
+  {
+    "id": "barbell_biceps_curl",
+    "name": "Bicepsový zdvih s velkou činkou (Barbell Curl)",
+    "category": "Paže",
+    "primary_muscles": ["Dvouhlavý sval pažní (Biceps)"],
+    "secondary_muscles": ["Předloktí"],
+    "equipment": "Velká činka / EZ osa",
+    "instructions": [
+      "Držte osu podhmatem s lokty pevně fixovanými u boků těla.",
+      "Zvedejte osu obloukem k hrudníku bez zaklánění trupu.",
+      "Pomalu a s odporem spouštějte do plného natažení paží."
+    ]
+  },
+  {
+    "id": "lying_triceps_extension",
+    "name": "Francouzský tlak vleže (Skull Crushers)",
+    "category": "Paže",
+    "primary_muscles": ["Trojhlavý sval pažní (Triceps)"],
+    "secondary_muscles": ["Předloktí"],
+    "equipment": "EZ osa / Jednoručky, Lavička",
+    "instructions": [
+      "Lehněte si na lavičku, držte osu s kolmými pažemi nad rameny.",
+      "Ohýbáním pouze v loktech spouštějte osu k čelu.",
+      "Napnutím tricepsů vytlačte osu zpět do svislé polohy."
+    ]
+  },
+  {
+    "id": "standing_calf_raise",
+    "name": "Výpony ve stoji (Standing Calf Raise)",
+    "category": "Nohy",
+    "primary_muscles": ["Lýtkové svaly (Gastrocnemius)"],
+    "secondary_muscles": ["Soleus"],
+    "equipment": "Stroj na výpony / Jednoručky",
+    "instructions": [
+      "Postavte se přední částí chodidel na stupínek.",
+      "Vytlačte se co nejvýše na špičky a na vrcholu sekundu podržte kontrakci.",
+      "Spusťte paty hluboko pod úroveň stupínku pro plné protažení lýtek."
+    ]
+  },
+  {
+    "id": "plank_isometric",
+    "name": "Plank (Statické prkno)",
+    "category": "Střed těla",
+    "primary_muscles": ["Přímý sval břišní", "Hluboké stabilizátory"],
+    "secondary_muscles": ["Šikmé břišní svaly", "Hýždě"],
+    "equipment": "Podložka",
+    "instructions": [
+      "Opřete se o předloktí a špičky chodidel.",
+      "Udržujte tělo v přísné rovině od hlavy až k patám bez prohýbání v bedrech.",
+      "Udržujte rovnoměrné dýchání po stanovenou dobu."
+    ]
+  },
+  {
+    "id": "hanging_leg_raise",
+    "name": "Přednožování ve visu na hrazdě (Hanging Leg Raise)",
+    "category": "Střed těla",
+    "primary_muscles": ["Dolní část břišního svalstva"],
+    "secondary_muscles": ["Ohybače kyčlí", "Předloktí"],
+    "equipment": "Hrazda",
+    "instructions": [
+      "Zavěste se na hrazdu bez houpání těla.",
+      "Tahem břišních svalů zvedejte nohy (napnuté nebo pokrčené) až do vodorovné polohy.",
+      "Kontrolovaně spusťte nohy zpět dolů."
+    ]
+  }
+]
