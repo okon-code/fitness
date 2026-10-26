@@ -258,6 +258,32 @@ function saveWorkoutsToStorage() {
   }
 }
 
+// Stažení přenosné kopie plánu. Data zůstávají v zařízení a nic se neposílá na server.
+function exportWorkoutData() {
+  try {
+    const payload = {
+      format: 'silovy-trenink-backup',
+      version: 1,
+      exportedAt: new Date().toISOString(),
+      days: AppState.days,
+      workouts: AppState.workouts
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `silovy-trenink-zaloha-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showToast('Záloha tréninku byla stažena do zařízení.');
+  } catch (err) {
+    console.error('Chyba při exportu tréninkových dat:', err);
+    showToast('Zálohu se nepodařilo vytvořit.');
+  }
+}
+
 // Načtení databáze cviků z exercises.json s do-catch / try-catch
 async function loadExerciseDatabase() {
   try {
@@ -1286,6 +1312,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Tlačítko Sdílet v horní liště
   document.getElementById('btn-share').addEventListener('click', shareWorkout);
+  document.getElementById('btn-export-data').addEventListener('click', exportWorkoutData);
 
   // Tlačítko "+ Přidat den" v horní liště
   document.getElementById('btn-open-add-day').addEventListener('click', openAddDayModal);

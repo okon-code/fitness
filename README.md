@@ -17,6 +17,7 @@ Všechny soubory se nachází ve složce [`pwa/`](file:///c:/Users/Tom%C3%ADk/Do
 - **Váhy pro každou sérii zvlášť**: Každá série má vlastní nastavení hmotnosti v kg (např. série 1: 12.5 kg, série 2: 15.0 kg, série 3: 17.5 kg) a počtu opakování.
 - **Progresivní přetížení (Overload)**: Jakmile odcvičíte a odškrtnete všechny série daného cviku, aplikace vám automaticky nabídne navýšení o +2.5 kg (nebo libovolný krok) do dalšího tréninku.
 - **100% Offline fungování**: Díky Service Workeru a `localStorage` funguje aplikace v telefonu i v posilovně bez internetu a bez zapnutého PC.
+- **Místní export zálohy**: Tlačítkem „Záloha“ stáhneš tréninkové dny, cviky, série, váhy a poznámky jako JSON soubor. Data zůstávají v zařízení a nikam se neposílají.
 - **Striktně textový a čistý design**: Žádné obrázky ani rušivé elementy, rychlé a přehledné ovládání s velkými dotykovými tlačítky.
 - **Sdílení tréninku**: Jedním kliknutím vygenerujete textový rozpis pro kamaráda nebo do poznámek.
 

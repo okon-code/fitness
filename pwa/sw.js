@@ -1,5 +1,5 @@
 // Service Worker pro 100% offline fungování aplikace Silový Trénink
-const CACHE_NAME = 'silovy-trenink-v9';
+const CACHE_NAME = 'silovy-trenink-v10';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
